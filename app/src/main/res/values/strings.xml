@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Countries</string>
+    <string name="country">Country\nname: %s - %s\nCapital: %s\nLanguage: %s - %s\nEmoji: %s</string>
+</resources>
