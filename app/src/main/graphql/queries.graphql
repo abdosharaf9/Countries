@@ -1,14 +1,81 @@
-query GetCountry($code: ID!) {
+query getContinent($code: ID!) {
+    continent(code: $code) {
+        code
+        name
+        countries {
+            code
+            name
+            native
+            emoji
+        }
+    }
+}
+
+query getLanguage($code: ID!) {
+    language(code: $code) {
+        code
+        name
+        native
+        rtl
+    }
+}
+
+query getCountry($code: ID!) {
     country(code: $code) {
+        code
         name
         native
         capital
-        emoji
+        continent {
+            code
+            name
+        }
         currency
+        currencies
+        emoji
         languages {
             code
             name
             native
+            rtl
         }
+        phone
+        phones
+        states {
+            name
+        }
+    }
+}
+
+query getContinents {
+    continents {
+        code
+        name
+        countries {
+            code
+        }
+    }
+}
+
+query getLanguages {
+    languages {
+        code
+        name
+        native
+        rtl
+    }
+}
+
+query getCountries {
+    countries {
+        code
+        name
+        native
+        capital
+        continent {
+            code
+            name
+        }
+        emoji
     }
 }

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="continent"
+            type="com.abdosharaf.countries.GetContinentsQuery.Continent" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_8dp"
+        android:background="@drawable/item_background"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/_16dp">
+
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:contentDescription="@string/continent_image"
+            app:getContinentImage="@{continent.code}"
+            tools:srcCompat="@drawable/countries" />
+
+        <TextView
+            style="@style/item_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8dp"
+            android:text="@{continent.name}"
+            tools:text="Africa" />
+
+        <TextView
+            style="@style/item_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:countriesNumber="@{continent.countries}"
+            tools:text="Countries: 58" />
+
+    </LinearLayout>
+</layout>
