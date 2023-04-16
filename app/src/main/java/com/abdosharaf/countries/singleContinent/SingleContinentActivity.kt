@@ -1,11 +1,12 @@
 package com.abdosharaf.countries.singleContinent
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.viewModels
 import com.abdosharaf.countries.R
 import com.abdosharaf.countries.databinding.ActivitySingleContinentBinding
+import com.abdosharaf.countries.singleCountry.SingleCountryActivity
 
 class SingleContinentActivity : AppCompatActivity() {
 
@@ -28,7 +29,10 @@ class SingleContinentActivity : AppCompatActivity() {
 
         binding.rvCountries.adapter = adapter
         adapter.onItemClicked = { country ->
-            Toast.makeText(this, country.name, Toast.LENGTH_SHORT).show()
+            Intent(this, SingleCountryActivity::class.java).also { intent ->
+                intent.putExtra("code", country.code)
+                startActivity(intent)
+            }
         }
 
         viewModel.getContinent(code!!)

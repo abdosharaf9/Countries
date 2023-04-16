@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.abdosharaf.countries.singleCountry.SingleCountryViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".singleCountry.SingleCountryActivity">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="@{viewModel.country == null ? View.GONE : View.VISIBLE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_16dp">
+
+                <TextView
+                    android:id="@+id/tvCountryNameLabel"
+                    style="@style/item_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/country_name"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvCountryName"
+                    style="@style/item_data"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_4dp"
+                    android:text="@{viewModel.country.name}"
+                    android:textAlignment="viewEnd"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/tvCountryNameLabel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tvCountryNameLabel"
+                    tools:text="Egypt" />
+
+                <TextView
+                    android:id="@+id/tvCountryNativeLabel"
+                    style="@style/item_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8dp"
+                    android:text="@string/country_native"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvCountryName" />
+
+                <TextView
+                    android:id="@+id/tvCountryNative"
+                    style="@style/item_data"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_4dp"
+                    android:text="@{viewModel.country.native}"
+                    android:textAlignment="viewEnd"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/tvCountryNativeLabel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tvCountryNativeLabel"
+                    tools:text="مصر" />
+
+                <TextView
+                    android:id="@+id/tvCountryCapitalLabel"
+                    style="@style/item_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8dp"
+                    android:text="@string/country_capital"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvCountryNative" />
+
+                <TextView
+                    android:id="@+id/tvCountryCapital"
+                    style="@style/item_data"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_4dp"
+                    android:text="@{viewModel.country.capital}"
+                    android:textAlignment="viewEnd"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/tvCountryCapitalLabel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tvCountryCapitalLabel"
+                    tools:text="Cairo" />
+
+                <TextView
+                    android:id="@+id/tvCountryContinentLabel"
+                    style="@style/item_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8dp"
+                    android:text="@string/country_continent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvCountryCapital" />
+
+                <TextView
+                    android:id="@+id/tvCountryContinent"
+                    style="@style/item_data"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_4dp"
+                    android:text="@{viewModel.country.continent.name}"
+                    android:textAlignment="viewEnd"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/tvCountryContinentLabel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tvCountryContinentLabel"
+                    tools:text="Africa - AF" />
+
+                <TextView
+                    android:id="@+id/tvCountryCurrencyLabel"
+                    style="@style/item_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8dp"
+                    android:text="@string/country_currency"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvCountryContinent" />
+
+                <TextView
+                    android:id="@+id/tvCountryCurrency"
+                    style="@style/item_data"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_4dp"
+                    android:text="@{viewModel.country.currency}"
+                    android:textAlignment="viewEnd"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/tvCountryCurrencyLabel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tvCountryCurrencyLabel"
+                    tools:text="EGB" />
+
+                <TextView
+                    android:id="@+id/tvCountryCurrenciesLabel"
+                    style="@style/item_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8dp"
+                    android:text="@string/country_currencies"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvCountryCurrency" />
+
+                <TextView
+                    android:id="@+id/tvCountryCurrencies"
+                    style="@style/item_data"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_4dp"
+                    android:text="@{viewModel.country.currencies.toString()}"
+                    android:textAlignment="viewEnd"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/tvCountryCurrenciesLabel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tvCountryCurrenciesLabel"
+                    tools:text="EGB - USD" />
+
+                <TextView
+                    android:id="@+id/tvCountryEmojiLabel"
+                    style="@style/item_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8dp"
+                    android:text="@string/country_emoji"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvCountryCurrencies" />
+
+                <TextView
+                    android:id="@+id/tvCountryEmoji"
+                    style="@style/item_data"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_4dp"
+                    android:text="@{viewModel.country.emoji}"
+                    android:textAlignment="viewEnd"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/tvCountryEmojiLabel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tvCountryEmojiLabel"
+                    tools:text="flag" />
+
+                <TextView
+                    android:id="@+id/tvCountryLanguagesLabel"
+                    style="@style/item_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8dp"
+                    android:text="@string/country_languages"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvCountryEmoji" />
+
+                <TextView
+                    android:id="@+id/tvCountryLanguages"
+                    style="@style/item_data"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_4dp"
+                    android:text="@{viewModel.country.languages.toString()}"
+                    android:textAlignment="viewEnd"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/tvCountryLanguagesLabel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tvCountryLanguagesLabel"
+                    tools:text="ar - en" />
+
+                <TextView
+                    android:id="@+id/tvCountryPhoneLabel"
+                    style="@style/item_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8dp"
+                    android:text="@string/country_phone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvCountryLanguages" />
+
+                <TextView
+                    android:id="@+id/tvCountryPhone"
+                    style="@style/item_data"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_4dp"
+                    android:text="@{viewModel.country.phone}"
+                    android:textAlignment="viewEnd"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/tvCountryPhoneLabel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tvCountryPhoneLabel"
+                    tools:text="20" />
+
+                <TextView
+                    android:id="@+id/tvCountryPhonesLabel"
+                    style="@style/item_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8dp"
+                    android:text="@string/country_phones"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvCountryPhone" />
+
+                <TextView
+                    android:id="@+id/tvCountryPhones"
+                    style="@style/item_data"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_4dp"
+                    android:text="@{viewModel.country.phones.toString()}"
+                    android:textAlignment="viewEnd"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/tvCountryPhonesLabel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tvCountryPhonesLabel"
+                    tools:text="20" />
+
+                <TextView
+                    android:id="@+id/tvCountryStatesLabel"
+                    style="@style/item_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8dp"
+                    android:text="@string/country_states"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvCountryPhones" />
+
+                <TextView
+                    android:id="@+id/tvCountryStates"
+                    style="@style/item_data"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_4dp"
+                    android:text="@{viewModel.country.states.toString()}"
+                    android:textAlignment="viewEnd"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/tvCountryStatesLabel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tvCountryStatesLabel"
+                    tools:text="Cairo - Alex" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{viewModel.country == null ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

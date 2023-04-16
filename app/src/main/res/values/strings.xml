@@ -1,12 +1,19 @@
 <resources>
     <string name="app_name">Countries</string>
-    <string name="country">Country\nname: %s - %s\nCapital: %s\nLanguage: %s - %s\nEmoji: %s</string>
     <string name="countries_num">Countries: %d</string>
     <string name="continents">Continents</string>
     <string name="splash_image">Splash image</string>
+    <string name="continent_image">Continent image</string>
     <string name="continent_title">%s (%d countries)</string>
     <string name="country_name">Country Name:</string>
     <string name="country_native">Native name:</string>
     <string name="country_emoji">Emoji:</string>
-    <string name="continent_image">Continent image</string>
+    <string name="country_capital">Capital:</string>
+    <string name="country_continent">Continent:</string>
+    <string name="country_currency">Official currency:</string>
+    <string name="country_currencies">All currencies:</string>
+    <string name="country_languages">Languages:</string>
+    <string name="country_phone">Phone:</string>
+    <string name="country_phones">All phone codes:</string>
+    <string name="country_states">States:</string>
 </resources>
