@@ -6,6 +6,7 @@ import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.abdosharaf.countries.allCountries.AllCountriesAdapter
 import com.abdosharaf.countries.continents.ContinentsAdapter
 import com.abdosharaf.countries.singleContinent.CountriesAdapter
 
@@ -24,6 +25,12 @@ fun RecyclerView.bindContinents(list: MutableList<GetContinentsQuery.Continent>?
 fun RecyclerView.bindCountries(list: MutableList<GetContinentQuery.Country>?) {
     this.isVisible = !list.isNullOrEmpty()
     (this.adapter as CountriesAdapter).submitList(list)
+}
+
+@BindingAdapter("bindAllCountries")
+fun RecyclerView.bindAllCountries(list: MutableList<GetCountriesQuery.Country>?) {
+    this.isVisible = !list.isNullOrEmpty()
+    (this.adapter as AllCountriesAdapter).submitList(list)
 }
 
 @BindingAdapter("showIfNull")

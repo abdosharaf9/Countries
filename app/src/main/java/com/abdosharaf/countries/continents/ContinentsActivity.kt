@@ -3,8 +3,8 @@ package com.abdosharaf.countries.continents
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.viewModels
+import com.abdosharaf.countries.allCountries.AllCountriesActivity
 import com.abdosharaf.countries.databinding.ActivityContinentsBinding
 import com.abdosharaf.countries.singleContinent.SingleContinentActivity
 
@@ -28,7 +28,11 @@ class ContinentsActivity : AppCompatActivity() {
                     startActivity(intent)
                 }
             } else {
-                Toast.makeText(this, "Not implemented yet!!", Toast.LENGTH_SHORT).show()
+                Intent(this, AllCountriesActivity::class.java).also { intent ->
+                    intent.putExtra("name", continent.name)
+                    intent.putExtra("count", continent.countries.size)
+                    startActivity(intent)
+                }
             }
         }
 

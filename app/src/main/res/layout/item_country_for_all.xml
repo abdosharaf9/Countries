@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="country"
+            type="com.abdosharaf.countries.GetCountriesQuery.Country" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_8dp"
+        android:background="@drawable/item_background"
+        android:padding="@dimen/_16dp">
+
+        <TextView
+            android:id="@+id/tvCountryNameLabel"
+            style="@style/item_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/country_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvCountryName"
+            style="@style/item_data"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4dp"
+            android:text="@{country.name}"
+            android:textAlignment="viewEnd"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tvCountryNameLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvCountryNameLabel"
+            tools:text="Egypt" />
+
+        <TextView
+            android:id="@+id/tvCountryNativeLabel"
+            style="@style/item_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_4dp"
+            android:text="@string/country_native"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvCountryName" />
+
+        <TextView
+            android:id="@+id/tvCountryNative"
+            style="@style/item_data"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4dp"
+            android:text="@{country.native}"
+            android:textAlignment="viewEnd"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tvCountryNativeLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/tvCountryNativeLabel"
+            tools:text="مصر" />
+
+        <TextView
+            android:id="@+id/tvCountryEmojiLabel"
+            style="@style/item_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_4dp"
+            android:text="@string/country_emoji"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvCountryNative" />
+
+        <TextView
+            android:id="@+id/tvCountryEmoji"
+            style="@style/item_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4dp"
+            android:text="@{country.emoji}"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tvCountryEmojiLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/tvCountryEmojiLabel"
+            tools:text="Egypt" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
