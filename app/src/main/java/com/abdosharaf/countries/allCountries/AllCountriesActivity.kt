@@ -1,5 +1,6 @@
 package com.abdosharaf.countries.allCountries
 
+import android.app.ActivityOptions
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -28,10 +29,15 @@ class AllCountriesActivity : AppCompatActivity() {
 
         binding.rvCountries.adapter = adapter
         adapter.onItemClicked = { country ->
-            Intent(this, SingleCountryActivity::class.java).also { intent ->
-                intent.putExtra("code", country.code)
-                startActivity(intent)
-            }
+            val myIntent = Intent(this, SingleCountryActivity::class.java)
+            myIntent.putExtra("code", country.code)
+
+            val options = ActivityOptions.makeCustomAnimation(
+                this,
+                R.anim.slide_in_right,
+                R.anim.slide_out_left
+            )
+            startActivity(myIntent, options.toBundle())
         }
 
         viewModel.getAllCountries()

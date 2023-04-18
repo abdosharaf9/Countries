@@ -1,9 +1,11 @@
 package com.abdosharaf.countries.continents
 
+import android.app.ActivityOptions
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import com.abdosharaf.countries.R
 import com.abdosharaf.countries.allCountries.AllCountriesActivity
 import com.abdosharaf.countries.databinding.ActivityContinentsBinding
 import com.abdosharaf.countries.singleContinent.SingleContinentActivity
@@ -21,18 +23,28 @@ class ContinentsActivity : AppCompatActivity() {
 
         adapter.onItemClicked = { continent ->
             if(continent.code != "-1") {
-                Intent(this, SingleContinentActivity::class.java).also { intent ->
-                    intent.putExtra("code", continent.code)
-                    intent.putExtra("name", continent.name)
-                    intent.putExtra("count", continent.countries.size)
-                    startActivity(intent)
-                }
+                val myIntent = Intent(this, SingleContinentActivity::class.java)
+                myIntent.putExtra("code", continent.code)
+                myIntent.putExtra("name", continent.name)
+                myIntent.putExtra("count", continent.countries.size)
+
+                val options = ActivityOptions.makeCustomAnimation(
+                    this,
+                    R.anim.slide_in_right,
+                    R.anim.slide_out_left
+                )
+                startActivity(myIntent, options.toBundle())
             } else {
-                Intent(this, AllCountriesActivity::class.java).also { intent ->
-                    intent.putExtra("name", continent.name)
-                    intent.putExtra("count", continent.countries.size)
-                    startActivity(intent)
-                }
+                val myIntent = Intent(this, AllCountriesActivity::class.java)
+                myIntent.putExtra("name", continent.name)
+                myIntent.putExtra("count", continent.countries.size)
+
+                val options = ActivityOptions.makeCustomAnimation(
+                    this,
+                    R.anim.slide_in_right,
+                    R.anim.slide_out_left
+                )
+                startActivity(myIntent, options.toBundle())
             }
         }
 
