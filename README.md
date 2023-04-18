@@ -20,4 +20,4 @@ I'm not responsible for any information in this app.
 
 ---
 
-You can download and try the app from [this link](https://drive.google.com/file/d/1zHzchqsDlndClow70fzsYkvRx1vM7KMa/view?usp=sharing). Feel free to comment about any issue in the app.
+You can download and try the app from [this link](https://github.com/abdosharaf9/Countries/raw/master/APK/Countries%20v1.0.apk). Feel free to comment about any issue in the app.
