@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="language"
+            type="com.abdosharaf.countries.GetCountryQuery.Language" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="100dp"
+        android:layout_height="120dp"
+        android:layout_marginEnd="@dimen/_8dp"
+        android:background="@drawable/item_background"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/_16dp">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:contentDescription="@string/languages_image"
+            app:srcCompat="@drawable/languages" />
+
+        <TextView
+            style="@style/item_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{language.name}"
+            android:textAlignment="center"
+            tools:text="Arabic" />
+
+        <TextView
+            style="@style/item_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{language.native}"
+            android:textAlignment="center"
+            tools:text="العربية" />
+
+    </LinearLayout>
+</layout>

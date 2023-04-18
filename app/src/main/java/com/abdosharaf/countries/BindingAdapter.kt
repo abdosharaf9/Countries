@@ -1,5 +1,6 @@
 package com.abdosharaf.countries
 
+import android.view.View
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
@@ -9,6 +10,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.abdosharaf.countries.allCountries.AllCountriesAdapter
 import com.abdosharaf.countries.continents.ContinentsAdapter
 import com.abdosharaf.countries.singleContinent.CountriesAdapter
+import com.abdosharaf.countries.singleCountry.adapters.CurrencyAdapter
+import com.abdosharaf.countries.singleCountry.adapters.LanguageAdapter
+import com.abdosharaf.countries.singleCountry.adapters.StateAdapter
 
 @BindingAdapter("countriesNumber")
 fun TextView.countriesNumber(list: MutableList<GetContinentsQuery.Country>) {
@@ -33,9 +37,32 @@ fun RecyclerView.bindAllCountries(list: MutableList<GetCountriesQuery.Country>?)
     (this.adapter as AllCountriesAdapter).submitList(list)
 }
 
+@BindingAdapter("bindAllCurrencies")
+fun RecyclerView.bindAllCurrencies(list: MutableList<String>?) {
+    this.isVisible = !list.isNullOrEmpty()
+    (this.adapter as CurrencyAdapter).submitList(list)
+}
+
+@BindingAdapter("bindAllLanguages")
+fun RecyclerView.bindAllLanguages(list: MutableList<GetCountryQuery.Language>?) {
+    this.isVisible = !list.isNullOrEmpty()
+    (this.adapter as LanguageAdapter).submitList(list)
+}
+
+@BindingAdapter("bindAllStates")
+fun RecyclerView.bindAllStates(list: MutableList<GetCountryQuery.State>?) {
+    this.isVisible = !list.isNullOrEmpty()
+    (this.adapter as StateAdapter).submitList(list)
+}
+
 @BindingAdapter("showIfNull")
 fun ProgressBar.showIfNull(list: List<Any>?) {
     this.isVisible = list.isNullOrEmpty()
+}
+
+@BindingAdapter("hideIfNull")
+fun View.hideIfNull(list: List<Any>?) {
+    this.isVisible = !list.isNullOrEmpty()
 }
 
 @BindingAdapter("getContinentImage")

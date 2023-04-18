@@ -13,7 +13,10 @@
     <string name="country_currency">Official currency:</string>
     <string name="country_currencies">All currencies:</string>
     <string name="country_languages">Languages:</string>
-    <string name="country_phone">Phone:</string>
+    <string name="country_phone">Phone code:</string>
     <string name="country_phones">All phone codes:</string>
     <string name="country_states">States:</string>
+    <string name="currency_image">Currency image</string>
+    <string name="languages_image">Languages image</string>
+    <string name="places_image">Places image</string>
 </resources>

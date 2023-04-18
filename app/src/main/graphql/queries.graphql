@@ -37,12 +37,12 @@ query getCountry($code: ID!) {
             code
             name
             native
-            rtl
         }
         phone
         phones
         states {
             name
+            code
         }
     }
 }
